@@ -1,0 +1,39 @@
+{
+  "name": "boleto-service",
+  "version": "1.0.0",
+  "description": "Microservice to get boleto data",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "nodemon src/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pedropereiraassis/boleto-service-nodejs.git"
+  },
+  "keywords": [
+    "boleto"
+  ],
+  "author": "Pedro Assis",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pedropereiraassis/boleto-service-nodejs/issues"
+  },
+  "homepage": "https://github.com/pedropereiraassis/boleto-service-nodejs#readme",
+  "dependencies": {
+    "ajv": "^8.11.0",
+    "koa": "^2.13.4",
+    "koa-bodyparser": "^4.3.0",
+    "koa-compose": "^4.1.0",
+    "koa-logger": "^3.2.1",
+    "koa-router": "^10.1.1",
+    "koa2-cors": "^2.0.6",
+    "winston": "^3.8.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.18.0",
+    "jest": "^28.1.1",
+    "nodemon": "^2.0.18",
+    "supertest": "^6.2.3"
+  }
+}
