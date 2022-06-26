@@ -62,6 +62,10 @@ const getDigit = (field) => {
 
   let digit = 10 - (sum % 10)
 
+  if (digit == 10) {
+    digit = 0
+  }
+  
   return digit;
 }
 
