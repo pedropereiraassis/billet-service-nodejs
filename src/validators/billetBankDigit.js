@@ -19,7 +19,7 @@ const validateGeneralDigit = (barCode) => {
   }
   
   if (digit != barCode[4]) {
-    throw new Error('Dígito verificador geral inválido.')
+    throw new Error('Boleto inválido: dígito verificador geral inválido.')
   } 
 
   return
@@ -35,7 +35,7 @@ const validateDigits = (billetCode) => {
   const thirdDigit = getDigit(thirdField);
 
   if (firstDigit != billetCode[9] || secondDigit != billetCode[20] || thirdDigit != billetCode[31]) {
-    throw new Error('Dígitos verificadores inválidos.')
+    throw new Error('Boleto inválido: dígitos verificadores inválidos.')
   }
 
   return
