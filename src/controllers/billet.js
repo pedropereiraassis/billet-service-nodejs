@@ -1,13 +1,21 @@
-const billetService = require('../services/billet');
+const billetDealershipService = require('../services/billetDealership');
+const billetBankService = require('../services/billetBank');
 
 const getBilletData = async (ctx) => {
   const billetCode = ctx.params.billetCode;
+
   if (billetCode.length == 47) {
-    ctx.body = await billetService.getBilletBank(billetCode);
+    const barCode = await billetBankService.getBarCodeBank(billetCode);
+    const expirationDate = await billetBankService.getExpirationDateBank(barCode);
+    const amount = await billetBankService.getAmountBank(barCode);
+    ctx.body = { barCode: barCode, amount: amount, expirationDate: expirationDate }
   } else if (billetCode.length == 48) {
-    ctx.body = await billetService.getBilletDealership(billetCode);
+    const barCode = await billetDealershipService.getBarCodeDealership(billetCode);
+    const amount = await billetDealershipService.getAmountDealership(barCode);
+    const expirationDate = await billetDealershipService.getExpirationDateDealership(barCode);
+    ctx.body = { barCode: barCode, amount: amount, expirationDate: expirationDate }
   } else {
-    ctx.body = { message: 'invalid billet code'}
+    ctx.body = { message: 'Boleto inválido.'}
   }
 };
 
