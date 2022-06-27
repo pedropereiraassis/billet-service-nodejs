@@ -2,7 +2,7 @@ const Router = require('koa-router');
 const compose = require('koa-compose');
 const errorHandler = require('./middlewares/errorHandler');
 const billetController = require('./controllers/billet');
-const billetValidator = require('./validators/billet');
+const billetValidator = require('./validators/billetGeneral');
 
 module.exports = ((opts = {}) => {
   const router = new Router();
