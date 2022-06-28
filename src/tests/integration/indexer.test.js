@@ -22,9 +22,9 @@ describe('GET /boleto/:billetCode', () => {
     expect(response.body.barCode).toEqual('21299758700000020000001121100012100447561740');
     expect(response.body.amount).toEqual('20.00');
     expect(response.body.expirationDate).toEqual('2018-07-16');
-});
+  });
 
-test('GET /boleto/856200000037194300042026204304030057713141812105', async () => {
+  test('GET /boleto/856200000037194300042026204304030057713141812105', async () => {
     const response = await request
       .get('/boleto/856200000037194300042026204304030057713141812105');
 
@@ -32,5 +32,5 @@ test('GET /boleto/856200000037194300042026204304030057713141812105', async () =>
     expect(response.body.barCode).toEqual('85620000003194300042022043040300571314181210');
     expect(response.body.amount).toEqual('319.43');
     expect(response.body.expirationDate).toEqual('2022-04-30');
-});
+  });
 });
