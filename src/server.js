@@ -1,6 +1,4 @@
-const app = require('./app');
-const logger = require('./utils/logger');
+const { startServer } = require("./app");
+const server = startServer();
 
-app.listen(8080, () => {
-  logger.info('Server running on port 8080')
-});
+module.exports = server;

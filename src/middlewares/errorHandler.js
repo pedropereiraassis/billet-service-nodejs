@@ -7,8 +7,8 @@ module.exports = async (ctx, next) => {
       ctx.body = { message: err.message }
     } else {
       ctx.status = err.status;
-      ctx.body = { message: err.message || "Internal server error" };
+      ctx.body = { message: err.message || 'Internal server error' }
     }
-    ctx.app.emit("error", err, ctx);
+    ctx.app.emit('error', err, ctx);
   }
 }

@@ -19,10 +19,9 @@ const validateGeneralDigit = (barCode) => {
   }
   
   if (digit != barCode[4]) {
-    throw new Error('Boleto inválido: dígito verificador geral inválido.')
+    return false
   } 
-
-  return
+  return true
 }
 
 const validateDigits = (billetCode) => {
@@ -35,10 +34,10 @@ const validateDigits = (billetCode) => {
   const thirdDigit = getDigit(thirdField);
 
   if (firstDigit != billetCode[9] || secondDigit != billetCode[20] || thirdDigit != billetCode[31]) {
-    throw new Error('Boleto inválido: dígitos verificadores inválidos.')
+    return false
   }
 
-  return
+  return true
 }
 
 const getDigit = (field) => {
@@ -56,9 +55,9 @@ const getDigit = (field) => {
   }
 
   let sum = numbers.join('')
-              .split('')
-              .map(Number)
-              .reduce((beforeValue, currentValue) => beforeValue + currentValue);
+    .split('')
+    .map(Number)
+    .reduce((beforeValue, currentValue) => beforeValue + currentValue);
 
   let digit = 10 - (sum % 10)
 
@@ -72,4 +71,5 @@ const getDigit = (field) => {
 module.exports = {
   validateGeneralDigit,
   validateDigits,
+  getDigit,
 }

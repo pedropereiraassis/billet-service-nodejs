@@ -1,11 +1,11 @@
 const validateGeneralDigit = (barCode) => {
 
   if (barCode[2] == 8 || barCode[2] == 9) {
-    validateMod11(barCode);
-    return;
+    const digitIsValid = validateMod11(barCode);
+    return digitIsValid
   } else {
-    validateMod10(barCode);
-    return;
+    const digitIsValid = validateMod10(barCode);
+    return digitIsValid
   }
 }
 
@@ -30,12 +30,12 @@ const validateMod11 = (barCode) => {
   } else if (digit == 0 || digit == 1) {
     digit = 0;
   }
-  
+
   if (digit != barCode[3]) {
-    throw new Error('Boleto inválido: dígito verificador geral inválido.')
+    return false
   } 
 
-  return
+  return true
 }
 
 const validateMod10 = (barCode) => {
@@ -54,9 +54,9 @@ const validateMod10 = (barCode) => {
   }
 
   let sum = numbers.join('')
-              .split('')
-              .map(Number)
-              .reduce((beforeValue, currentValue) => beforeValue + currentValue);
+    .split('')
+    .map(Number)
+    .reduce((beforeValue, currentValue) => beforeValue + currentValue);
 
   let digit = 10 - (sum % 10)
 
@@ -65,10 +65,10 @@ const validateMod10 = (barCode) => {
   }
   
   if (digit != barCode[3]) {
-    throw new Error('Boleto inválido: dígito verificador geral inválido.')
+    return false
   } 
 
-  return
+  return true
 }
 
 const validateDigits = (billetCode) => {
@@ -83,10 +83,10 @@ const validateDigits = (billetCode) => {
   const fourthDigit = getDigit(fourthField);
   
   if (firstDigit != billetCode[11] || secondDigit != billetCode[23] || thirdDigit != billetCode[35] || fourthDigit != billetCode[47]) {
-    throw new Error('Boleto inválido: dígitos verificadores inválidos.')
+    return false
   }
 
-  return
+  return true
 }
 
 const getDigit = (field) => {
@@ -104,9 +104,9 @@ const getDigit = (field) => {
   }
 
   let sum = numbers.join('')
-              .split('')
-              .map(Number)
-              .reduce((beforeValue, currentValue) => beforeValue + currentValue);
+    .split('')
+    .map(Number)
+    .reduce((beforeValue, currentValue) => beforeValue + currentValue);
 
   let digit = 10 - (sum % 10)
 
@@ -120,4 +120,7 @@ const getDigit = (field) => {
 module.exports = {
   validateGeneralDigit,
   validateDigits,
+  validateMod10,
+  validateMod11,
+  getDigit,
 }

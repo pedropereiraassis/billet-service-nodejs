@@ -1,13 +1,13 @@
 const validateBilletIsNumber = async(ctx, next) => {
-    const regex = /^\d+$/;
-    const paramIsValid = regex.test(ctx.params.billetCode);
+  const regex = /^\d+$/;
+  const paramIsValid = regex.test(ctx.params.billetCode);
 
-    if(!paramIsValid) {
-      ctx.throw(400, { 'message': 'Boleto inválido: linha digitada do boleto deve conter apenas números' });
-    }
+  if(!paramIsValid) {
+    ctx.throw(400, { 'message': 'Boleto inválido: linha digitada do boleto deve conter apenas números' });
+  }
 
-    return await next();
-};
+  return await next();
+}
 
 const validateBilletLength = async (ctx, next) => {
   
@@ -21,4 +21,4 @@ const validateBilletLength = async (ctx, next) => {
 module.exports = {
   validateBilletIsNumber,
   validateBilletLength
-};
+}
