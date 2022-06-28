@@ -7,7 +7,12 @@ const billetValidator = require('./validators/billetGeneral');
 module.exports = (() => {
   const router = new Router();
 
-  router.get('/boleto/:billetCode', compose([errorHandler, billetValidator.validateBilletIsNumber, billetValidator.validateBilletLength]), billetController.getBilletData);
+  router
+    .get(
+      '/boleto/:billetCode',
+      compose([errorHandler, billetValidator.validateBilletIsNumber, billetValidator.validateBilletLength]),
+      billetController.getBilletData
+    );
 
   return router;
 })()
