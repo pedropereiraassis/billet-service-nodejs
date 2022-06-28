@@ -1,0 +1,14 @@
+version: '3'
+
+services:  
+  boleto-app:
+    image: node:16.14
+    restart: on-failure:10
+    container_name: boleto-app
+    ports:
+      - 8080:8080
+    volumes:
+      - .:/usr/app
+      - /usr/app/node_modules
+    working_dir: /usr/app
+    command: bash -c " npm install && npm run lint:fix && npm test && npm start "
