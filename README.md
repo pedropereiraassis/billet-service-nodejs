@@ -8,13 +8,18 @@ Run the following command to install necessary dependencies:
 npm install
 ```
 
-And then to run the application locally run:
+If you want to run tests before running the application do as following:
+```
+npm run test
+```
+
+To run the application locally:
 ```
 npm run start
 ```
 
 If you want to run the application in a container, make sure docker is running 
-and then run the command:
+and run the command:
 ```
 docker-compose up
 ```
