@@ -33,7 +33,7 @@ const getExpirationTax = async (barCode) => {
   } else if (expirationDateOpt2.getTime() && expirationDateOpt2.getFullYear() > 1900 && expirationDateOpt2.getFullYear() < 2030) {
     return expirationDateOpt2.toISOString().slice(0, 10);
   } else {
-    return 'boleto sem vencimento determinado';
+    return 'boleto sem vencimento determinado na linha digitável';
   }
 }
 
