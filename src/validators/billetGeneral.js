@@ -3,7 +3,7 @@ const validateBilletIsNumber = async(ctx, next) => {
   const paramIsValid = regex.test(ctx.params.billetCode);
 
   if(!paramIsValid) {
-    ctx.throw(400, { 'message': 'Boleto inválido: linha digitada do boleto deve conter apenas números' });
+    ctx.throw(400, { 'message': 'Boleto inválido: linha digitada do boleto deve conter apenas números.' });
   }
 
   return await next();

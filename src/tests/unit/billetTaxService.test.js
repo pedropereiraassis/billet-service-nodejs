@@ -1,7 +1,7 @@
 const billetTaxService = require('../../services/billetTax');
 
 describe('Unit tests Tax Bank Services', () => {
-  // caminhos felizes
+  // cenários felizes
   test('Get tax billet barCode', async () => {
     const result = await billetTaxService.getBarCodeTax('856200000037194300042026204304030057713141812105');
     expect(result).toEqual('85620000003194300042022043040300571314181210');
@@ -17,10 +17,10 @@ describe('Unit tests Tax Bank Services', () => {
     expect(result).toEqual('319.43');
   });
 
-  // caminhos não felizes
+  // cenários não felizes
   test('Get tax billet with no expirationDate', async () => {
     const result = await billetTaxService.getExpirationTax('84670000001435900240200240500024384221010811');
-    expect(result).toEqual('boleto sem validade determinada');
+    expect(result).toEqual('boleto sem vencimento determinado');
   });
 
   test('Get tax billet with no amount', async () => {
