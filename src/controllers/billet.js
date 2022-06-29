@@ -20,10 +20,6 @@ const getBilletData = async (ctx) => {
     ctx.status = 200;
     ctx.body = { barCode: barCode, amount: amount, expirationDate: expirationDate }
     return ctx;
-  } else {
-    ctx.status = 400;
-    ctx.body = { message: 'Boleto inválido.'}
-    return ctx;
   }
 };
 
