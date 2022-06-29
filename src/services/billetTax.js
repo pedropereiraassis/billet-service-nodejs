@@ -19,17 +19,21 @@ const getBarCodeTax = async (billetCode) => {
   return barCode;
 }
 
-/* como entendi que não há um padrão para a data de vencimento dos boletos de arrecadação
-por ser livre para a empresa que utiliza colocar ou não, e se colocar pode ser adicionado
-em qualquer posição, fiz essa validação um tipo que encontrei que tinha vencimento */
+/* como entendi que não há um padrão definitivo para a data de vencimento dos boletos
+de arrecadação fiz essa validação por ter encontrado vencimento em dois campos */
 const getExpirationTax = async (barCode) => {
-  const dateToFormat = `${barCode.slice(23, 25)}/${barCode.slice(25, 27)}/${barCode.slice(19, 23)}`
-  const expirationDate = new Date(dateToFormat);
+  const dateToFormatOpt1 = `${barCode.slice(23, 25)}/${barCode.slice(25, 27)}/${barCode.slice(19, 23)}`
+  const expirationDateOpt1 = new Date(dateToFormatOpt1);
 
-  if (expirationDate.getTime() && expirationDate.getFullYear() > 1900 && expirationDate.getFullYear() < 2030) {
-    return expirationDate.toISOString().slice(0, 10);
+  const dateToFormatOpt2 = `${barCode.slice(31, 33)}/${barCode.slice(33, 35)}/${barCode.slice(27, 31)}`
+  const expirationDateOpt2 = new Date(dateToFormatOpt2);
+
+  if (expirationDateOpt1.getTime() && expirationDateOpt1.getFullYear() > 1900 && expirationDateOpt1.getFullYear() < 2030) {
+    return expirationDateOpt1.toISOString().slice(0, 10);
+  } else if (expirationDateOpt2.getTime() && expirationDateOpt2.getFullYear() > 1900 && expirationDateOpt2.getFullYear() < 2030) {
+    return expirationDateOpt2.toISOString().slice(0, 10);
   } else {
-    return 'boleto sem validade determinada';
+    return 'boleto sem vencimento determinado';
   }
 }
 
