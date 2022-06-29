@@ -20,7 +20,7 @@ describe('Unit tests Tax Bank Services', () => {
   // cenários não felizes
   test('Get tax billet with no expirationDate', async () => {
     const result = await billetTaxService.getExpirationTax('84670000001435900240200240500024384221010811');
-    expect(result).toEqual('boleto sem vencimento determinado');
+    expect(result).toEqual('boleto sem vencimento determinado na linha digitável');
   });
 
   test('Get tax billet with no amount', async () => {
