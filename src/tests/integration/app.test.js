@@ -19,7 +19,7 @@ describe('GET /boleto/:billetCode', () => {
       .get('/boleto/21290001192110001210904475617405975870000002000');
 
     expect(response.statusCode).toEqual(200);
-    expect(response.body.barCode).toEqual('21299758700000020000001121100012100447561740');
+    expect(response.body.barCode).toEqual('2129975870000002000000112110001210044756174');
     expect(response.body.amount).toEqual('20.00');
     expect(response.body.expirationDate).toEqual('2018-07-16');
   });
