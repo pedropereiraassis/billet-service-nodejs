@@ -3,7 +3,7 @@ const billetTaxService = require('../../services/billetTax');
 describe('Unit tests Tax Bank Services', () => {
   // cenários felizes
   test('Get tax billet barCode', async () => {
-    const result = await billetTaxService.getBarCodeTax('856200000037194300042026204304030057713141812105');
+    const result = await billetTaxService.getBarCodeTax('85620000003719430004202620430403005771314181210');
     expect(result).toEqual('85620000003194300042022043040300571314181210');
   });
 
