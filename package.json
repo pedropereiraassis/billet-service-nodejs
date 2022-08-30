@@ -33,9 +33,13 @@
     "winston": "^3.8.0"
   },
   "devDependencies": {
+    "@semantic-release/changelog": "^6.0.1",
+    "@semantic-release/git": "^10.0.1",
+    "@semantic-release/npm": "^9.0.1",
     "eslint": "^8.18.0",
     "jest": "^28.1.1",
     "nodemon": "^2.0.18",
+    "semantic-release": "^19.0.5",
     "supertest": "^6.2.3"
   }
 }
