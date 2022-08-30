@@ -2,7 +2,7 @@ const supertest = require('supertest');
 const { startServer } = require("../../app");
 
 let server;
-
+let request;
 beforeAll(async () => {
   server = startServer();
   request = supertest(server)

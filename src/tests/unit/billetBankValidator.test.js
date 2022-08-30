@@ -12,7 +12,7 @@ describe('Unit tests Billet Bank validators', () => {
   });
   
   test('Get bank billet digit by field', async () => {
-    const result = await billetBankDigit.getDigit('212900011');
+    const result = billetBankDigit.getDigit('212900011');
     expect(result).toEqual(9);
   });
 });

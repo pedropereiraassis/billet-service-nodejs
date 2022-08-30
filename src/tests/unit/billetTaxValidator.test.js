@@ -17,7 +17,7 @@ describe('Unit tests Billet Bank validators', () => {
   });
   
   test('Get tax billet digit by field', async () => {
-    const result = await billetTaxDigit.getDigit('81770000000');
+    const result = billetTaxDigit.getDigit('81770000000');
     expect(result).toEqual(0);
   });
 });
