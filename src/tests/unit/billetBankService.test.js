@@ -4,7 +4,7 @@ describe('Unit tests Billet Bank Services', () => {
   // cenários felizes
   test('Get bank billet barCode', async () => {
     const result = await billetBankService.getBarCodeBank('21290001192110001210904475617405975870000002000');
-    expect(result).toEqual('2129975870000002000000112110001210044756174');
+    expect(result).toEqual('21299758700000020000001121100012100447561740');
   });
   
   test('Get bank billet expirationDate', async () => {
