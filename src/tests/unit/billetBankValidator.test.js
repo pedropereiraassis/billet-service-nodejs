@@ -2,7 +2,7 @@ const billetBankDigit = require('../../validators/billetBankDigit');
 
 describe('Unit tests Billet Bank validators', () => {
   test('Validate bank billet general digit', async () => {
-    const result = await billetBankDigit.validateGeneralDigit('2129975870000002000000112110001210044756174');
+    const result = await billetBankDigit.validateGeneralDigit('21299758700000020000001121100012100447561740');
     expect(result).toBeTruthy();
   });
   
