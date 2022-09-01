@@ -25,5 +25,5 @@ jobs:
         node-version: ${{ matrix.node-version }}
     - name: install dependencies
       run: npm ci
-    - name: test
-      run: docker-compose -f docker-compose.test.yml up
+    - name: run tests
+      run: npm test
