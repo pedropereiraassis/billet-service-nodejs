@@ -24,12 +24,6 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
     - name: install dependencies
-      run: npm install
-    - name: start database
-      uses: Harmon758/postgresql-action@v1.0.0
-      with:
-        postgresql db: diagrams
-        postgresql user: postgres
-        postgresql password: postgres
-    - name: run tests
-      run: npm test
+      run: npm ci
+    - name: test
+      run: docker-compose -f docker-compose.test.yml up
